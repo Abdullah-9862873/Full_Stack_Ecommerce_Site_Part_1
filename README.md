@@ -44,21 +44,21 @@ Step 11: Make two folders inside the "backend" named "routes" and "controllers"
 Step 12: Inside the "routes" make a new file "productRoute.js" and inside the "controllers", make a new file named "productController.js"
 
 Step 13: Inside the "productController.js", type the following
+
 			exports.getAllProducts = (req, res) => {
  			   res.status(200).json({message: "route is working fine"});
 			}
 
 Step 14: Inside the "productRoute.js", type the following
+
 			const express = require("express");
 			const { getAllProducts } = require("../controllers/productController");
-
 			const router = express.Router();
-
 			router.route("/products").get(getAllProducts);
-
 			module.exports = router;
 
 Step 15: Import the Route in your "app.js" file  and now your app.js file will look like the following:
+
 			const express = require("express");
 			const app = express();
 
@@ -84,8 +84,8 @@ _______________________________Connecting Database______________________________
 Step 18: Create a folder inside "config", named "database.js"
 
 Step 19: Write the following code inside "database.js"
-			const mongoose = require("mongoose");
 
+			const mongoose = require("mongoose");
 
 			const connectDatabase = ()=>{
 			    mongoose.connect(process.env.DB_URI).then((data)=>{
@@ -94,7 +94,6 @@ Step 19: Write the following code inside "database.js"
 			            console.log(err);
 			        })
 			}
-
 			module.exports = connectDatabase;
 
 
@@ -103,6 +102,7 @@ Step 20: Import the database inside the "server.js"
 			const connectDatabase = require("./config/database");
 
 Step 21: Run the connectDatabase function
+
 			connectDatabase();
 
 ______________________________________________models_________________________________________________________
@@ -112,8 +112,8 @@ Step 22: Make a new folder named "models" inside "backend" folder.
 Step 23: Make a new file named "productModel.js" inside "models"
 
 Step 24: Make a product Schema inside "productModels.js"
-			const mongoose = require("mongoose");
 
+			const mongoose = require("mongoose");
 			const productSchema = new mongoose.Schema({
 			    name: {
 			        type:String,
@@ -186,8 +186,9 @@ Step 24: Make a product Schema inside "productModels.js"
 ______________________________________________createProduct_________________________________________________________
 
 Step 25: Go to the "productController.js" inside "controllers" and type the following
-				// Create Product --- Admin
 
+				// Create Product --- Admin
+				
 				exports.createProduct = async (req, res, next)=> {
 				    const product = await Product.create(req.body);
 
@@ -198,8 +199,8 @@ Step 25: Go to the "productController.js" inside "controllers" and type the foll
 				}
 
 Step 26: Now the "productController.js" will be something like
-				const Product = require("../models/productModel");
 
+				const Product = require("../models/productModel");
 				// Create Product --- Admin
 
 				exports.createProduct = async (req, res, next)=> {
@@ -210,8 +211,6 @@ Step 26: Now the "productController.js" will be something like
 			        product
 			    })
 			}
-
-
 				// Get All Products
 				exports.getAllProducts = async (req, res) => {
 				    const products = await Product.find();
@@ -230,6 +229,7 @@ Step 27: Add a new router inside "productRoute.js"
 ______________________________________________Update Product_________________________________________________________
 
 Step 28: Add the following in "productController.js" 
+
 				// Update Product --- Admin
 
 				exports.updateProduct = async (req, res, next) => {
