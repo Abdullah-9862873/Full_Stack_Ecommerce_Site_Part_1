@@ -8,7 +8,9 @@ Step 3: Inside root directory open a terminal and type command, "npm init" and i
 
 Step 4: Install the packages "npm install mongoose express dotenv"
 
+
 Step 5: Install the package "npm install nodemon"
+
 
 Step 6: Setup the app.js file as
 
