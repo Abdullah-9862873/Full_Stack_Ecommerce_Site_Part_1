@@ -21,7 +21,7 @@ Step 6: Setup the app.js file as
 			module.exports = app;
 
 
-Step 7: Setup the server.js file as
+Step 7: Setup the server.js file as 
 			const app = require("./app");
 
 			app.listen(process.env.PORT, ()=>{
